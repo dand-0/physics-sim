@@ -1,3 +1,6 @@
+#Setup
+#type: python -m pip install pyglet
+
 import pyglet
 from pyglet import shapes
 import random
