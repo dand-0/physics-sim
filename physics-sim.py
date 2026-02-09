@@ -117,5 +117,5 @@ def update(dt):
         for j in range(i + 1, len(balls)):
             check_collision(balls[i], balls[j])
 
-pyglet.clock.schedule_interval(update, 1/600.0)
+pyglet.clock.schedule_interval(update, 1/60.0)
 pyglet.app.run()
