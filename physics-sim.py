@@ -75,7 +75,7 @@ def check_collision(ball1, ball2):
             return
         
         #calc impulse
-        restitution = 25
+        restitution = 1 #goes from 0 to inf making it more bouncy when colliding w/ other balls.
         impulse = (-(1 + restitution) * dvn) / (1/ball1.mass + 1/ball2.mass)
 
         #apply impulse
