@@ -3,6 +3,8 @@ from pyglet import shapes
 import random
 import math
 
+
+
 window = pyglet.window.Window(800, 600, "Collision Physics Simulator")
 batch = pyglet.graphics.Batch()
 
@@ -40,7 +42,12 @@ class Ball:
         if self.y - self.radius < 0:
             self.y = self.radius
             self.vy *= -0.9
-            
+        
+        #bounce ceiling - needs fixing
+        #elif self.y + self.radius > 600:
+        #    self.y = 600 - self.radius
+        #    self.vy *= -0.9
+
         #update circle position
         self.circle.x = self.x
         self.circle.y = self.y
@@ -75,7 +82,7 @@ def check_collision(ball1, ball2):
             return
         
         #calc impulse
-        restitution = 1 #goes from 0 to inf making it more bouncy when colliding w/ other balls.
+        restitution = 0.9 #change from 0 to inf 
         impulse = (-(1 + restitution) * dvn) / (1/ball1.mass + 1/ball2.mass)
 
         #apply impulse
